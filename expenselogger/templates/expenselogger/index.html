@@ -1,0 +1,27 @@
+{% extends "expenselogger/main.html" %}
+
+{% block content %}
+<h2>Submit New Expense</h2>
+<form>
+{% csrf_token %}
+
+<div class="input-group">
+    <label for="expense_name">Name</label>: <input type="text" class="form-control" name="expense_name"/>
+    <label for="expense_type">Type</label>: 
+    <select>
+  		<option value="Flight">Flight</option>
+  		<option value="Car Rental">Car Rental</option>
+  		<option value="Hotel">Hotel</option>
+	</select>
+	<br>
+	<label for="expense_amount">Amount</label>: <input type="number" class="form-control" name="expense_name"/>
+	<label for="expense_date">Date</label>: <input type="date" class="form-control" name="expense_name"/>
+    <input type="submit" id="submit_expense" value="Submit" class="form-control" />
+</div>
+</form>
+
+<h2>Recently Submitted Expenses</h2>
+<ul>
+<!-- implement me -->
+</ul>
+{% endblock %}

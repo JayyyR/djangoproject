@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    <title>Expense Logger</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1><a href="{% url 'index' %}">Expense Logger</a></h1>
+{% block content %}
+{% endblock %}
+</body>
+</html>
