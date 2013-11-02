@@ -14,7 +14,8 @@ def index(request):
 def create_expense(request):
     content = request.POST["expense_name"]
     amount = request.POST["expense_amount"]
-    e = Expense(name = content, type = "Flight", amount=amount, date = datetime.now())
+    date = request.POST["expense_date"]
+    e = Expense(name = content, type = "Flight", amount=amount, date = date)
     e.save()
     expsense_list = []  #implement me
     context = {'expense_list': expsense_list}

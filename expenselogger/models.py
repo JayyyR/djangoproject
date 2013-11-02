@@ -9,7 +9,7 @@ class Expense(models.Model):
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=100, choices= TYPE_CHOICES);
     amount = models.IntegerField(default=0)
-    date = models.DateTimeField("Date")
+    date = models.DateField("Date")
     
     def __unicode__(self):
         return self.name
