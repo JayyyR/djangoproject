@@ -4,7 +4,7 @@
 <h2>Submit New Expense</h2>
 
 
-<form action="{% url 'create_expense'%}" method="post">
+<form action="{% url 'create_expense'%}" method="post"  onsubmit="return confirm('Are you sure you want to submit this expense?')">
 {% csrf_token %}
 
 <div class="input-group">
@@ -23,11 +23,29 @@
 </div>
 </form>
 
+
 <h2>Recently Submitted Expenses</h2>
 
 	<ul>
     {% for e in expense_list %}
-        <li>{{ e.name }} {{e.date}}</li>
+    	
+        <li title= {{e.name}} onclick= "myFunction(this.title)">{{ e.name }} {{e.date}}</li>
+        <span id={{e.name}} style="display: none;">
+			Name: {{ e.name }} <br>
+			Type: {{e.type}}<br>
+			Amount: {{e.amount}}<br>
+			Date: {{e.date}}
+		</span>
     {% endfor %}
     </ul>
+    
+
+    
+<script>
+function myFunction(e)
+{
+	document.getElementById(e).style.display = 'block';
+}
+</script>
+
 {% endblock %}
