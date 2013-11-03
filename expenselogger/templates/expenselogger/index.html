@@ -29,12 +29,12 @@
 	<ul>
     {% for e in expense_list %}
     	
-        <li title= {{e.name}} onclick= "myFunction(this.title)">{{ e.name }} {{e.date}}</li>
+        <li title= {{e.name}} onclick= "myFunction(this.title)">{{ e.name }}</li>
         <span id={{e.name}} style="display: none;">
-			Name: {{ e.name }} <br>
-			Type: {{e.type}}<br>
-			Amount: {{e.amount}}<br>
-			Date: {{e.date}}
+			<b>Name:</b> {{ e.name }} <br>
+			<b>Type:</b> {{e.type}}<br>
+			<b>Amount:</b> ${{e.amount}}<br>
+			<b>Date:</b> {{e.date}}
 		</span>
     {% endfor %}
     </ul>
@@ -44,7 +44,17 @@
 <script>
 function myFunction(e)
 {
-	document.getElementById(e).style.display = 'block';
+	var isVisible = document.getElementById(e).offsetWidth > 0 || document.getElementById(e).offsetHeight > 0;
+	
+	
+	if (isVisible)
+	  {
+		document.getElementById(e).style.display = 'none';
+	  }
+	else
+	  {
+		document.getElementById(e).style.display = 'block';
+	  }
 }
 </script>
 
