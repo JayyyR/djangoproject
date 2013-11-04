@@ -25,11 +25,13 @@
 
 
 <h2>Recently Submitted Expenses</h2>
-
+<!--List of all submitted expenses-->
 	<ul>
     {% for e in expense_list %}
     	
-        <li title= {{e.name}} onclick= "myFunction(this.title)">{{ e.name }}</li>
+    	<!--Set title to expense name-->
+        <li title= {{e.name}} onclick= "toggleInfo(this.title)">{{ e.name }}</li>
+        <!--Have all info of expense hidden by default-->
         <span id={{e.name}} style="display: none;">
 			<b>Name:</b> {{ e.name }} <br>
 			<b>Type:</b> {{e.type}}<br>
@@ -40,9 +42,9 @@
     </ul>
     
 
-    
+ <!--Function for toggling expense information-->   
 <script>
-function myFunction(e)
+function toggleInfo(e)
 {
 	var isVisible = document.getElementById(e).offsetWidth > 0 || document.getElementById(e).offsetHeight > 0;
 	
