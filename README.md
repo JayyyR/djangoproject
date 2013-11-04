@@ -7,5 +7,5 @@ A simple site for submitting expenses.
 
 - pip install Django
 - python manage.py syncdb
-- python runserver.py
+- python manage.py runserver
 - browse to http://localhost:8000
